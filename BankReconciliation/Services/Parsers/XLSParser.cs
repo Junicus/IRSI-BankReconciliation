@@ -80,9 +80,6 @@ namespace BankReconciliation.Services.Parsers
 		  //TODO: Verify AP-IN for vendorName;
 
 		  if (worksheet.Cells[currRow + 1, "C"].Value2 == null) currRow += 1;
-
-		  //if (worksheet.Cells[currRow,"B"].Value2!=null && !worksheet.Cells[currRow, "A"].Value2.ToString().StartsWith("Net Change"))
-		  // currRow += 1;
 		}
 
 		transactions.Add(new Transaction()
