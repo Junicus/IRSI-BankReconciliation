@@ -77,6 +77,11 @@ namespace BankReconciliation.Services.Parsers
 		  decimal.TryParse(worksheet.Cells[currRow, "H"].Value2.ToString(), out Credit);
 
 		  vendorName = worksheet.Cells[currRow, "D"].Value2;
+		  if (GLCode == "AP-IN")
+		  {
+			var tempVendorName = worksheet.Cells[currRow + 1, "A"].Value2;
+			vendorName = $"{(tempVendorName == null ? string.Empty : $"{tempVendorName}:")}{vendorName}";
+		  }
 
 		  if (worksheet.Cells[currRow + 1, "C"].Value2 == null) currRow += 1;
 		}
