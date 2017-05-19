@@ -77,7 +77,6 @@ namespace BankReconciliation.Services.Parsers
 		  decimal.TryParse(worksheet.Cells[currRow, "H"].Value2.ToString(), out Credit);
 
 		  vendorName = worksheet.Cells[currRow, "D"].Value2;
-		  //TODO: Verify AP-IN for vendorName;
 
 		  if (worksheet.Cells[currRow + 1, "C"].Value2 == null) currRow += 1;
 		}
@@ -90,7 +89,7 @@ namespace BankReconciliation.Services.Parsers
 		  Acconut = account.ToString(),
 		  IBalance = ibalance.ToString(),
 		  GLCode = GLCode.ToString(),
-		  VendorName = vendorName.ToString(),
+		  VendorName = vendorName == null ? "" : vendorName.ToString(),
 		  CheckNumber = checkNumber,
 		  Credit = Credit.ToString(),
 		  DCredit = Credit,
