@@ -48,7 +48,7 @@ namespace BankReconciliation.Services
 	  var outlines = new List<string>();
 
 	  //Add Initial Balance
-	  outlines.Add($"I{transactions[0].Acconut.PadLeft(6, ' ')}{period.StartDate.ToString("yyyyMMdd")}{(decimal.Parse(transactions[0].IBalance) * 100).ToString("f0").PadLeft(17, ' ')}");
+	  outlines.Add($"I{transactions[0].Acconut.PadRight(6, ' ')}{period.StartDate.ToString("yyyyMMdd")}{(decimal.Parse(transactions[0].IBalance) * 100).ToString("f0").PadLeft(17, ' ')}");
 
 	  foreach (var t in transactions)
 	  {
@@ -122,7 +122,7 @@ namespace BankReconciliation.Services
 	  }
 
 	  //Add Final Balance
-	  outlines.Add($"F{transactions[0].Acconut.PadLeft(6, ' ')}{period.EndDate.ToString("yyyyMMdd")}{(decimal.Parse(transactions[0].FBalance) * 100).ToString("f0").PadLeft(17, ' ')}");
+	  outlines.Add($"F{transactions[0].Acconut.PadRight(6, ' ')}{period.EndDate.ToString("yyyyMMdd")}{(decimal.Parse(transactions[0].FBalance) * 100).ToString("f0").PadLeft(17, ' ')}");
 
 	  File.WriteAllLines(filename, outlines);
 	}
